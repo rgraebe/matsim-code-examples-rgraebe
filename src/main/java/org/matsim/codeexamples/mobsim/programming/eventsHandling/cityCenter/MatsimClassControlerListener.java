@@ -1,9 +1,10 @@
 /* *********************************************************************** *
- * project: org.matsim.*												   *
+ * project: org.matsim.*
+ * RunEmissionToolOffline.java
  *                                                                         *
  * *********************************************************************** *
  *                                                                         *
- * copyright       : (C) 2008 by the members listed in the COPYING,        *
+ * copyright       : (C) 2009 by the members listed in the COPYING,        *
  *                   LICENSE and WARRANTY file.                            *
  * email           : info at matsim dot org                                *
  *                                                                         *
@@ -16,31 +17,28 @@
  *   See also COPYING, LICENSE and WARRANTY file                           *
  *                                                                         *
  * *********************************************************************** */
-package org.matsim.codeexamples.programming.multipleSubpopulations;
-
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-import org.matsim.codeexamples.mobsim.programming.multipleSubpopulations.RunSubpopulationsExample;
-
+package org.matsim.codeexamples.mobsim.programming.eventsHandling.cityCenter;
+import org.matsim.core.controler.events.IterationEndsEvent;
+import org.matsim.core.controler.events.StartupEvent;
+import org.matsim.core.controler.listener.IterationEndsListener;
+import org.matsim.core.controler.listener.StartupListener;
 /**
- * @author nagel
- *
+ * @author jbischoff
+ * A basic Controler Listener used in the MATSim class at TU Berlin.
  */
-public class SubpopulationsExampleTest {
+public class MatsimClassControlerListener implements StartupListener, IterationEndsListener {
 
-	/**
-	 * Test method for {@link RunSubpopulationsExample#main(java.lang.String[])}.
-	 */
-	@SuppressWarnings("static-method")
-	@Test
-	public final void testMain() {
-		try {
-			RunSubpopulationsExample.main(null);
-		} catch ( Exception ee ) {
-			ee.printStackTrace();
-			fail( "Got an exception while running subpopulation example: "+ee ) ;
-		}
+	MyEventHandler myEventHandler;
+	 
+	@Override
+	public void notifyStartup(StartupEvent event) {
+		myEventHandler = new MyEventHandler(); 
+		event.getServices().getEvents().addHandler(myEventHandler);
+	}
+
+	@Override
+	public void notifyIterationEnds(IterationEndsEvent event) {
+		myEventHandler.printPersonWithHighestWorkingTime();
 	}
 
 }

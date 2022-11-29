@@ -1,9 +1,9 @@
 /* *********************************************************************** *
- * project: org.matsim.*												   *
+ * project: org.matsim.*
  *                                                                         *
  * *********************************************************************** *
  *                                                                         *
- * copyright       : (C) 2008 by the members listed in the COPYING,        *
+ * copyright       : (C) 2014 by the members listed in the COPYING,     *
  *                   LICENSE and WARRANTY file.                            *
  * email           : info at matsim dot org                                *
  *                                                                         *
@@ -16,31 +16,15 @@
  *   See also COPYING, LICENSE and WARRANTY file                           *
  *                                                                         *
  * *********************************************************************** */
-package org.matsim.codeexamples.programming.multipleSubpopulations;
-
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-import org.matsim.codeexamples.mobsim.programming.multipleSubpopulations.RunSubpopulationsExample;
 
 /**
- * @author nagel
- *
+ * Demonstrating where and how to set the different parameters for parallelisation:
+ * <ul>
+ * 		<li> mobility simulation (qsim);
+ * 		<li> replanning and;
+ * 		<li> event handling.
+ * </ul>
+ * 
+ * @author jwjoubert
  */
-public class SubpopulationsExampleTest {
-
-	/**
-	 * Test method for {@link RunSubpopulationsExample#main(java.lang.String[])}.
-	 */
-	@SuppressWarnings("static-method")
-	@Test
-	public final void testMain() {
-		try {
-			RunSubpopulationsExample.main(null);
-		} catch ( Exception ee ) {
-			ee.printStackTrace();
-			fail( "Got an exception while running subpopulation example: "+ee ) ;
-		}
-	}
-
-}
+package org.matsim.codeexamples.mobsim.programming.parallelisation;

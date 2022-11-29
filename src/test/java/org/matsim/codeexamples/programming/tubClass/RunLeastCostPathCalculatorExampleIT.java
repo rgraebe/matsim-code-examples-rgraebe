@@ -22,7 +22,7 @@ package org.matsim.codeexamples.programming.tubClass;
 import java.io.File;
 
 import org.junit.Test;
-import org.matsim.codeexamples.programming.leastCostPath.RunLeastCostPathCalculatorExample;
+import org.matsim.codeexamples.mobsim.programming.leastCostPath.RunLeastCostPathCalculatorExample;
 import org.matsim.core.utils.io.IOUtils;
 
 /**

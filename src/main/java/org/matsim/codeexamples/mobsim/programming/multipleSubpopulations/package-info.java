@@ -16,31 +16,8 @@
  *   See also COPYING, LICENSE and WARRANTY file                           *
  *                                                                         *
  * *********************************************************************** */
-package org.matsim.codeexamples.programming.multipleSubpopulations;
-
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-import org.matsim.codeexamples.mobsim.programming.multipleSubpopulations.RunSubpopulationsExample;
-
 /**
  * @author nagel
  *
  */
-public class SubpopulationsExampleTest {
-
-	/**
-	 * Test method for {@link RunSubpopulationsExample#main(java.lang.String[])}.
-	 */
-	@SuppressWarnings("static-method")
-	@Test
-	public final void testMain() {
-		try {
-			RunSubpopulationsExample.main(null);
-		} catch ( Exception ee ) {
-			ee.printStackTrace();
-			fail( "Got an exception while running subpopulation example: "+ee ) ;
-		}
-	}
-
-}
+package org.matsim.codeexamples.mobsim.programming.multipleSubpopulations;

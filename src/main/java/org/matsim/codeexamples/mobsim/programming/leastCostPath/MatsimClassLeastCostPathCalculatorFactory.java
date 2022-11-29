@@ -1,9 +1,10 @@
 /* *********************************************************************** *
- * project: org.matsim.*												   *
+ * project: org.matsim.*
+ * RunEmissionToolOffline.java
  *                                                                         *
  * *********************************************************************** *
  *                                                                         *
- * copyright       : (C) 2008 by the members listed in the COPYING,        *
+ * copyright       : (C) 2009 by the members listed in the COPYING,        *
  *                   LICENSE and WARRANTY file.                            *
  * email           : info at matsim dot org                                *
  *                                                                         *
@@ -16,31 +17,24 @@
  *   See also COPYING, LICENSE and WARRANTY file                           *
  *                                                                         *
  * *********************************************************************** */
-package org.matsim.codeexamples.programming.multipleSubpopulations;
+package org.matsim.codeexamples.mobsim.programming.leastCostPath;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-import org.matsim.codeexamples.mobsim.programming.multipleSubpopulations.RunSubpopulationsExample;
+import org.matsim.api.core.v01.network.Network;
+import org.matsim.core.router.util.LeastCostPathCalculator;
+import org.matsim.core.router.util.LeastCostPathCalculatorFactory;
+import org.matsim.core.router.util.TravelDisutility;
+import org.matsim.core.router.util.TravelTime;
 
 /**
- * @author nagel
+ * @author jbischoff
  *
  */
-public class SubpopulationsExampleTest {
+public class MatsimClassLeastCostPathCalculatorFactory implements LeastCostPathCalculatorFactory {
 
-	/**
-	 * Test method for {@link RunSubpopulationsExample#main(java.lang.String[])}.
-	 */
-	@SuppressWarnings("static-method")
-	@Test
-	public final void testMain() {
-		try {
-			RunSubpopulationsExample.main(null);
-		} catch ( Exception ee ) {
-			ee.printStackTrace();
-			fail( "Got an exception while running subpopulation example: "+ee ) ;
-		}
+	@Override
+	public LeastCostPathCalculator createPathCalculator(Network network,
+			TravelDisutility travelCosts, TravelTime travelTimes) {
+		return new MatsimClassDijkstra(network,null,null);
 	}
 
 }
